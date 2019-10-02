@@ -26,4 +26,12 @@ Auth::routes([
     'password.reset' => false, // Email Verification Routes...
 ]);
 
+Route::group(['middleware' => ['web', 'auth']], function () {
+    Route::resource('/article', 'ArticleController');
+    Route::resource('/category', 'CategoryController')->except(['create', 'show', 'edit']);
+    Route::resource('/sub-category', 'SubCategoryController')->except(['create', 'show', 'edit', 'index']);
+    Route::get('/sub-category/{category}', 'SubCategoryController@index')->name('sub-category.index');
+    Route::resource('/profile', 'ProfileController')->except(['create', 'show', 'edit', 'store']);
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
