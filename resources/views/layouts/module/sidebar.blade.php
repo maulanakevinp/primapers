@@ -17,24 +17,36 @@
                     {{ __('Admin') }}
                 </div>
 
+                    @if ($title == 'Artikel')
+                    <li class="nav-item active">
+                    @else
                     <li class="nav-item">
+                    @endif
                         <a class="nav-link pb-0" href="{{ url('/article') }}">
                             <i class="{{ __('far fa-fw fa-newspaper') }}"></i>
-                            <span>{{ __('Article') }}</span>
+                            <span>{{ __('Artikel') }}</span>
                         </a>
                     </li>
 
+                    @if ($title == 'Profile')
+                    <li class="nav-item active">
+                    @else
                     <li class="nav-item">
+                    @endif
                         <a class="nav-link pb-0" href="{{ url('/profile') }}">
                             <i class="{{ __('fas fa-fw fa-address-card') }}"></i>
                             <span>{{ __('Profile') }}</span>
                         </a>
                     </li>
 
+                    @if ($title == 'Kategori')
+                    <li class="nav-item active">
+                    @else
                     <li class="nav-item">
+                    @endif
                         <a class="nav-link pb-0" href="{{ url('/category') }}">
                             <i class="{{ __('fas fa-fw fa-layer-group	') }}"></i>
-                            <span>{{ __('Category') }}</span>
+                            <span>{{ __('Kategori') }}</span>
                         </a>
                     </li>
                     

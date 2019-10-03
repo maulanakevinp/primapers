@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Subcategory;
 use Illuminate\Http\Request;
 
-class SubCategoryController extends Controller
+class SubcategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -50,5 +51,16 @@ class SubCategoryController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getSubCategories(Request $request)
+    {
+        $id = $request->id;
+        $sub_categories = Subcategory::where('category_id', $id)->get();
+
+        echo "<option value=''> Pilih Sub Kategori </option>";
+        foreach ($sub_categories as $sub_category) {
+            echo "<option value='" . $sub_category['id'] . "'>" . $sub_category['sub_category'] . "</option>";
+        }
     }
 }

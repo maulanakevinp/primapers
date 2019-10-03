@@ -27,9 +27,15 @@ Auth::routes([
 ]);
 
 Route::group(['middleware' => ['web', 'auth']], function () {
-    Route::resource('/article', 'ArticleController');
+    Route::resource('/article', 'ArticleController')->except(['show']);
+    Route::get('/article/softdelete/{id}', 'ArticleController@softdelete')->name('softdelete');
+    Route::get('/article/trash', 'ArticleController@trash')->name('article.trash');
+    Route::get('/article/restore/{id}', 'ArticleController@restore')->name('article.restore');
+    Route::get('/article/restore', 'ArticleController@restoreAll')->name('article.restoreAll');
+
     Route::resource('/category', 'CategoryController')->except(['create', 'show', 'edit']);
     Route::resource('/sub-category', 'SubCategoryController')->except(['create', 'show', 'edit', 'index']);
+    Route::post('/get-sub-categories', 'SubCategoryController@getSubCategories')->name('get-sub-categories');
     Route::get('/sub-category/{category}', 'SubCategoryController@index')->name('sub-category.index');
     Route::resource('/profile', 'ProfileController')->except(['create', 'show', 'edit', 'store']);
 });

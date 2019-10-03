@@ -15,11 +15,11 @@ class Article extends Model
      * @var array
      */
     protected $fillable = [
-        'sub_category_id', 'title', 'description', 'caption', 'photo'
+        'subcategories_id', 'title', 'description', 'caption', 'photo'
     ];
 
     public function subcategories()
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo('App\Subcategory');
     }
 }

@@ -13,7 +13,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $title = "Category";
+        $title = "Kategori";
         return view('category.index', compact('title'));
     }
 
