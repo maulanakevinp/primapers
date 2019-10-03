@@ -49,16 +49,6 @@
                             <span>{{ __('Kategori') }}</span>
                         </a>
                     </li>
-                    
-            <!-- Divider -->
-            <hr class="sidebar-divider mt-3">
-
-                    <li class="nav-item">
-                        <a class="nav-link pb-0" href="{{ url('/logout') }}">
-                            <i class="{{ __('fas fa-sign-out-alt fa-fw') }}"></i>
-                            <span>{{ __('Logout') }}</span>
-                        </a>
-                    </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider mt-3">

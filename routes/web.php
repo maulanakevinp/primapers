@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 //Auth
 Auth::routes([
     'register' => false, // Registration Routes...
@@ -42,4 +38,4 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::resource('/profile', 'ProfileController')->except(['create', 'show', 'edit', 'store']);
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');

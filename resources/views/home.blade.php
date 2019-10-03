@@ -28,19 +28,21 @@
         </div>
     </nav>
     <main class="page service-page">
-        <section class="clean-block clean-services dark">
+        <section class="clean-block clean-services dark pt-5">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card"><img class="card-img-top w-100 d-block" src="{{asset('img/scenery/image5.jpg')}}">
-                            <div class="card-body">
-                                <h4 class="card-title">Lorem Ipsum</h4>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in.</p>
+                <div class="row ">
+                    @foreach ($articles as $article)
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card"><img class="card-img-top w-100 d-block" src="{{asset('img/article/'.$article->photo)}}">
+                                <div class="card-body">
+                                    <h4 class="card-title block-with-text white-space">{{$article->title}}</h4>
+                                    <p class="card-text block-with-text">{{$article->description}}</p>
+                                </div>
                             </div>
-                            <div><button class="btn btn-outline-primary btn-sm" type="button">Learn More</button></div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
+                {{ $articles->links() }}
             </div>
         </section>
     </main>
