@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Profile;
 use Illuminate\Http\Request;
+use File;
 
 class ProfileController extends Controller
 {
@@ -14,50 +16,8 @@ class ProfileController extends Controller
     public function index()
     {
         $title = "Profile";
-        return view('profile.index', compact('title'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $profile = Profile::find(1);
+        return view('profile.index', compact('title', 'profile'));
     }
 
     /**
@@ -69,17 +29,35 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $profile = Profile::find($id);
+        $request->validate([
+            'title' => 'required',
+            'photo' => 'image|mimes:jpeg,png,gif,webp|max:2048',
+            'vision' => 'required',
+            'mision' => 'required',
+            'history' => 'required',
+            'about' => 'required'
+        ]);
+
+        $file = $request->file('photo');
+        $photo = $profile->photo;
+        if (!empty($file)) {
+            $file_name = time() . "_" . $file->getClientOriginalName();
+            $file->move(public_path('img/profile'), $file_name);
+            File::delete(public_path('img/profile/' . $profile->photo));
+            $photo = $file_name;
+        }
+
+        Profile::where('id', $id)->update([
+            'title' => $request->title,
+            'photo' => $photo,
+            'vision' => $request->vision,
+            'mision' => $request->mision,
+            'history' => $request->history,
+            'about' => $request->about
+        ]);
+
+        return redirect('/profile')->with('success', 'Profile baru berhasil diperbarui');
     }
 }

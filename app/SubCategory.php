@@ -15,6 +15,13 @@ class Subcategory extends Model
         'category_id', 'sub_category'
     ];
 
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
     public function categories()
     {
         return $this->belongsTo('App\Category');

@@ -14,4 +14,11 @@ class Profile extends Model
     protected $fillable = [
         'title', 'photo', 'vision', 'mision', 'history', 'about'
     ];
+
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
 }

@@ -15,6 +15,13 @@ class Category extends Model
         'sub_category_id', 'title', 'description', 'caption', 'photo'
     ];
 
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
     public function subcategories()
     {
         return $this->hasMany('App\SubCategory');
