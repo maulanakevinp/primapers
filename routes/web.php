@@ -34,9 +34,11 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/article/restore', 'ArticleController@restoreAll')->name('article.restoreAll');
 
     Route::resource('/category', 'CategoryController')->except(['create', 'show', 'edit']);
-    Route::resource('/sub-category', 'SubCategoryController')->except(['create', 'show', 'edit', 'index']);
-    Route::post('/get-sub-categories', 'SubCategoryController@getSubCategories')->name('get-sub-categories');
-    Route::get('/sub-category/{category}', 'SubCategoryController@index')->name('sub-category.index');
+    Route::post('/get-sub-categories', 'SubcategoryController@getSubCategories')->name('get-sub-categories');
+    Route::get('/subcategory/{category}', 'SubcategoryController@index')->name('subcategory.index');
+    Route::post('/subcategory/{category}', 'SubcategoryController@store')->name('subcategory.store');
+    Route::patch('/subcategory/{id}/{category}', 'SubcategoryController@update')->name('subcategory.update');
+    Route::delete('/subcategory/{id}/{category}', 'SubcategoryController@destroy')->name('subcategory.destroy');
     Route::resource('/profile', 'ProfileController')->except(['create', 'show', 'edit', 'store']);
 });
 

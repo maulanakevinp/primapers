@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Subcategory;
 use Illuminate\Http\Request;
 
@@ -14,9 +15,11 @@ class SubcategoryController extends Controller
      */
     public function index($category)
     {
-        $title = "Category";
-        $subtitle = "Sub Category";
-        return view('category.index', compact('title', 'subtitle'));
+        $title = "Kategori";
+        $subtitle = "Sub Kategori";
+        $subcategories = Subcategory::where('category_id', $category)->get();
+        $category = Category::find($category);
+        return view('subcategory.index', compact('title', 'subtitle', 'subcategories', 'category'));
     }
 
     /**
@@ -25,9 +28,16 @@ class SubcategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $category)
     {
-        //
+        $request->validate([
+            'sub_category' => 'required|string'
+        ]);
+        Subcategory::create([
+            'category_id' => $category,
+            'sub_category' => $request->sub_category
+        ]);
+        return redirect('/subcategory' . '/' . $category)->with('success', 'Sub Kategori baru berhasil ditambahkan');
     }
 
     /**
@@ -37,9 +47,15 @@ class SubcategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, $category)
     {
-        //
+        $request->validate([
+            'sub_category' => 'required|string'
+        ]);
+        Subcategory::where('id', $id)->update([
+            'sub_category' => $request->sub_category
+        ]);
+        return redirect('/subcategory' . '/' . $category)->with('success', 'Sub Kategori berhasil diperbarui');
     }
 
     /**
@@ -48,9 +64,10 @@ class SubcategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, $category)
     {
-        //
+        Subcategory::destroy($id);
+        return redirect('/subcategory' . '/' . $category)->with('success', 'Sub Kategori berhasil diperbarui');
     }
 
     public function getSubCategories(Request $request)

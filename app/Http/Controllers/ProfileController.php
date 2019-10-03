@@ -58,6 +58,6 @@ class ProfileController extends Controller
             'about' => $request->about
         ]);
 
-        return redirect('/profile')->with('success', 'Profile baru berhasil diperbarui');
+        return redirect('/profile')->with('success', 'Profile berhasil diperbarui');
     }
 }
