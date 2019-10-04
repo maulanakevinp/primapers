@@ -169,10 +169,11 @@ class ArticleController extends Controller
     public function show($id, $title)
     {
         $article = Article::where('id', $id)->where('title', str_replace('-', ' ', $title))->first();
+        $articles = Article::where('subcategory_id', $article->subcategory_id)->get();
         if (empty($article)) {
             return abort(404, 'Not Found');
         }
-        return view('article.show', compact('article'));
+        return view('article.show', compact('article', 'articles'));
     }
 
     public function showByCategory($id, $title)
