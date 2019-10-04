@@ -50,9 +50,8 @@
         {{ session('failed') }}
     </div>
     @endif
-        <section class="clean-block clean-services">
+        <section class="clean-services mb-5">
             <div class="container">
-                
                 <div class="row">
                     @foreach ($articles as $article)
                         <div class="col-md-6 col-lg-4">
