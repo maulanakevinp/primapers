@@ -23,7 +23,7 @@
             <div class="col-lg-6">
                 <div class="card shadow h-100">
                     <div class="card-header">
-                        <h5 class="m-0 pt-1 font-weight-bold text-success">{{ __('Foto') }}</h5>
+                        <h5 class="m-0 pt-1 font-weight-bold text-primary">{{ __('Foto') }}</h5>
                     </div>
                     <div class="card-body">
                         <img id="photo" src="{{ asset('img/article/'.$article->photo) }}" class="mw-100">
@@ -42,7 +42,7 @@
             <div class="col-lg-6">
                 <div class="card shadow h-100">
                     <div class="card-header">
-                        <h5 class="m-0 pt-1 font-weight-bold text-success">{{ $subtitle }}</h5>
+                        <h5 class="m-0 pt-1 font-weight-bold text-primary">{{ $subtitle }}</h5>
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
@@ -51,7 +51,7 @@
                                 <select class="form-control @error('category') is-invalid @enderror" name="category" id="category">
                                     <option value="">{{__('Pilih Kategori')}}</option>
                                     @foreach ($categories as $category)
-                                    @if($article->subcategories->category_id == $category->id)
+                                    @if($article->subcategory->category_id == $category->id)
                                     <option selected="selected" value="{{$category->id}}">{{$category->category}}</option>
                                     @else
                                     <option value="{{$category->id}}">{{$category->category}}</option>

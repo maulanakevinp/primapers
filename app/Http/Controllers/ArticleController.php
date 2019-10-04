@@ -80,7 +80,7 @@ class ArticleController extends Controller
         $subtitle = 'Edit Article';
         $article = Article::find($id);
         $categories = Category::all();
-        $sub_categories = Subcategory::where('category_id', $article->subcategories->category_id)->get();
+        $sub_categories = Subcategory::where('category_id', $article->subcategory->category_id)->get();
         return view('article.edit', compact('title', 'subtitle', 'article', 'categories', 'sub_categories'));
     }
 
