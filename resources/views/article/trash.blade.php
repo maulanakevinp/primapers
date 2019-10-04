@@ -27,7 +27,7 @@
         @endif
     </div>
 
-    <section class="clean-block clean-services ">
+    <section class="clean-block clean-services pb-5">
         <div class="container">
             <div class="row">
                 @foreach ($articles as $article)

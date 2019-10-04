@@ -55,7 +55,7 @@
         {{ session('failed') }}
     </div>
     @endif
-        <section class="clean-services mb-5">
+        <section class="clean-block clean-services pb-5">
             <div class="container">
                 @if ($articles->count() == 0)
                     <h5 class="text-center">{{__('Artikel Belum Tersedia')}} </h5>
