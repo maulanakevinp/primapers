@@ -60,20 +60,22 @@
                 @if ($articles->count() == 0)
                     <h5 class="text-center">{{__('Artikel Belum Tersedia')}} </h5>
                 @endif
-                @foreach ($articles as $article)
-                    <div class="col-md-6 col-lg-4">
-                        <a href="{{route('article.edit',$article->id)}}" class="card-link">
-                            <div class="card"><img class="card-img-top w-100 d-block" src="{{asset('img/article/'.$article->photo)}}">
-                                <div class="card-body">
-                                    <h4 class="card-title title-article block-with-text text-dark">{{$article->title}}</h4>
-                                    <p class="card-text description-article block-with-text text-dark">{{$article->description}}</p>
+                <div class="row">
+                    @foreach ($articles as $article)
+                        <div class="col-md-6 col-lg-4">
+                            <a href="{{route('article.edit',$article->id)}}" class="card-link">
+                                <div class="card"><img class="card-img-top w-100 d-block" src="{{asset('img/article/'.$article->photo)}}">
+                                    <div class="card-body">
+                                        <h4 class="card-title title-article block-with-text text-dark">{{$article->title}}</h4>
+                                        <p class="card-text description-article block-with-text text-dark">{{$article->description}}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                @endforeach
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+                {{ $articles->links() }}
             </div>
-            {{ $articles->links() }}
         </section>
 </div>
 <!-- /.container-fluid -->

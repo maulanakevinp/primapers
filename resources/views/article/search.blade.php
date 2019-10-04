@@ -11,7 +11,7 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-2">
         <h1 class="h3 mb-2 text-gray-800">{{ $subtitle }}</h1>
     </div>
-    <div class="row">
+    <div class="row mb-4">
         <div class="col-lg-3 mb-3">
             <div class="btn-group">
                 <a href="{{route('article.trash')}}" class="btn  btn-warning">{{ __('Arsip') }}</a>
@@ -52,6 +52,9 @@
     @endif
         <section class="clean-block clean-services pb-5">
             <div class="container">
+                @if ($articles->count() == 0)
+                    <h5 class="text-center">{{__('Artikel Belum Tersedia')}} </h5>
+                @endif
                 <div class="row">
                     @foreach ($articles as $article)
                         <div class="col-md-6 col-lg-4">
