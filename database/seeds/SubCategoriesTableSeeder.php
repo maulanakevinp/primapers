@@ -48,5 +48,13 @@ class SubcategoriesTableSeeder extends Seeder
             'category_id' => 3,
             'sub_category' => 'Novel'
         ]);
+        DB::table('subcategories')->insert([
+            'category_id' => 4,
+            'sub_category' => 'Commercial Advertising Photography'
+        ]);
+        DB::table('subcategories')->insert([
+            'category_id' => 4,
+            'sub_category' => 'Street Photography'
+        ]);
     }
 }

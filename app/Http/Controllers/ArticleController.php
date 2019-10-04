@@ -165,4 +165,31 @@ class ArticleController extends Controller
         $article->restore();
         return redirect('/article')->with('success', 'Artikel berhasil kembalikan semua');
     }
+
+    public function show($id, $title)
+    {
+        $article = Article::where('id', $id)->where('title', str_replace('-', ' ', $title))->first();
+        if (empty($article)) {
+            return abort(404, 'Not Found');
+        }
+        return view('article.show', compact('article'));
+    }
+
+    public function showByCategory($id, $title)
+    {
+        $article = Article::where('subcategory_id', $id)->get();
+        if (empty($article)) {
+            return abort(404, 'Not Found');
+        }
+        return view('article.show-by-category', compact('article'));
+    }
+
+    public function showBySubcategory($id, $title)
+    {
+        $article = Article::where('subcategory_id', $id)->get();
+        if (empty($article)) {
+            return abort(404, 'Not Found');
+        }
+        return view('article.show', compact('article'));
+    }
 }

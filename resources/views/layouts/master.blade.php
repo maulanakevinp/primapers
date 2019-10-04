@@ -27,21 +27,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
 
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link rel="icon" href="{{ asset('') }}">
 
-    <style>
-        .block-with-text {
-            display: block;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .white-space{
-            white-space: nowrap;
-        }
-    </style>
+    
 </head>
 
 <body id="page-top">

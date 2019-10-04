@@ -22,7 +22,7 @@
 
 </head>
 
-<body style="background: url({{ asset('img/background/bg-login.jpg') }})">
+<body class="bg-gradient-dark">
 
     @yield('content')
 

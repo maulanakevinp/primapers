@@ -1,97 +1,31 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Services - Brand</title>
-    <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
-    <link rel="stylesheet" href="{{asset('fonts/simple-line-icons.min.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
-    <link rel="stylesheet" href="{{asset('css/smoothproducts.css')}}">
-</head>
-
-<body>
-    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-        <div class="container"><a class="navbar-brand logo" href="#">Brand</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse"
-                id="navcol-1">
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="features.html">Features</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.html">Pricing</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="about-us.html">About Us</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <main class="page service-page">
-        <section class="clean-block clean-services dark pt-5">
-            <div class="container">
-                <div class="row ">
-                    @foreach ($articles as $article)
-                        <div class="col-md-6 col-lg-4">
-                            <div class="card"><img class="card-img-top w-100 d-block" src="{{asset('img/article/'.$article->photo)}}">
+@extends('layouts.layout')
+@section('title')
+    {{$title}} - {{config('app.name')}}
+@endsection
+@section('content')
+<main class="page service-page">
+    <section class="clean-block clean-services pt-4">
+        <div class="container">
+            <div class="row ">
+                @foreach ($articles as $article)
+                    <div class="col-md-6 col-lg-4">
+                        <a class="card-link" href="{{route('show',['id' => $article->id , 'title' => strtolower(str_replace(' ','-',$article->title))])}}">
+                            <div class="card">
+                                <img class="card-img-top w-100 d-block" src="{{asset('img/article/'.$article->photo)}}">
                                 <div class="card-body">
-                                    <h4 class="card-title block-with-text white-space">{{$article->title}}</h4>
-                                    <p class="card-text block-with-text">{{$article->description}}</p>
+                                    <h4 class="card-title title-article block-with-text text-dark">
+                                        {{$article->title}}
+                                    </h4>
+                                    <p class="card-text description-article block-with-text text-dark">{{$article->description}}</p>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
-                </div>
-                {{ $articles->links() }}
+                        </a>
+                    </div>
+                @endforeach
             </div>
-        </section>
-    </main>
-    <footer class="page-footer dark">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <h5>Get started</h5>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Sign up</a></li>
-                        <li><a href="#">Downloads</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
-                    <h5>About us</h5>
-                    <ul>
-                        <li><a href="#">Company Information</a></li>
-                        <li><a href="#">Contact us</a></li>
-                        <li><a href="#">Reviews</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
-                    <h5>Support</h5>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Help desk</a></li>
-                        <li><a href="#">Forums</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
-                    <h5>Legal</h5>
-                    <ul>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Terms of Use</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-            </div>
+            {{ $articles->links() }}
         </div>
-        <div class="footer-copyright">
-            <p>© 2018 Copyright Text</p>
-        </div>
-    </footer>
-    <script src="{{asset('js/jquery.min.js')}}"></script>
-    <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-    <script src="{{asset('js/smoothproducts.min.js')}}"></script>
-    <script src="{{asset('js/theme.js')}}"></script>
-</body>
-
-</html>
+    </section>
+</main>
+@endsection
+    

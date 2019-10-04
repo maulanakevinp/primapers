@@ -39,3 +39,6 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 });
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/artikel/{id}/{title}', 'ArticleController@show')->name('show');
+Route::get('/kategori/{berita}', 'ArticleController@showByCategory')->name('kategori');
+Route::get('/sub-kategori/{berita}', 'ArticleController@showBySubcategory')->name('sub-kategori');
