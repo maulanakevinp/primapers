@@ -20,7 +20,8 @@ class ArticleController extends Controller
     {
         $title = "Artikel";
         $articles = Article::orderBy('id', 'desc')->paginate(15);
-        return view('article.index', compact('title', 'articles'));
+        $categories = Category::all();
+        return view('article.index', compact('title', 'articles', 'categories'));
     }
 
     /**
@@ -194,5 +195,39 @@ class ArticleController extends Controller
             return abort(404, 'Not Found');
         }
         return view('article.show-subcategory', compact('subcategory', 'articles'));
+    }
+
+    public function search(Request $request)
+    {
+        $subtitle = "Search Artikel";
+        $title = "Artikel";
+        $request->validate([
+            'search' => 'required'
+        ]);
+        $search = $request->search;
+        $articles = Article::search($search);
+        $categories = Category::all();
+        return view('article.search', compact('subtitle', 'title', 'search', 'articles', 'categories'));
+    }
+
+    public function category($id)
+    {
+        $title = 'Artikel';
+        $Category = Category::find($id);
+        $subtitle = $Category->category;
+        $categories = Category::all();
+        $articles = Article::getByCategory($id);
+        return view('article.category', compact('subtitle', 'title', 'articles', 'categories', 'Category'));
+    }
+
+    public function subcategory($id, $category)
+    {
+        $title = 'Artikel';
+        $Subcategory = Subcategory::find($id);
+        $subcategories = Subcategory::where('category_id', $category)->get();
+        $subtitle = $Subcategory->category->category . ' : ' . $Subcategory->sub_category;
+        $categories = Category::all();
+        $articles = Article::where('subcategory_id', $id)->paginate(15);
+        return view('article.subcategory', compact('subtitle', 'title', 'articles', 'categories', 'subcategories', 'Subcategory'));
     }
 }

@@ -28,6 +28,9 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/article/trash', 'ArticleController@trash')->name('article.trash');
     Route::get('/article/restore/{id}', 'ArticleController@restore')->name('article.restore');
     Route::get('/article/restore', 'ArticleController@restoreAll')->name('article.restoreAll');
+    Route::get('/article/search', 'ArticleController@search')->name('article.search');
+    Route::get('/article/category/{id}', 'ArticleController@category')->name('article.category');
+    Route::get('/article/subcategory/{id}/{category}', 'ArticleController@subcategory')->name('article.subcategory');
 
     Route::resource('/category', 'CategoryController')->except(['create', 'show', 'edit']);
     Route::post('/get-sub-categories', 'SubcategoryController@getSubCategories')->name('get-sub-categories');
@@ -43,6 +46,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 });
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/search', 'HomeController@search')->name('search');
 Route::get('/artikel/{id}/{title}', 'ArticleController@show')->name('show');
 Route::get('/kategori/{id}/{berita}', 'ArticleController@showByCategory')->name('kategori');
 Route::get('/sub-kategori/{id}/{subcategory}', 'ArticleController@showBySubcategory')->name('sub-kategori');

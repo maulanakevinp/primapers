@@ -32,4 +32,17 @@ class Article extends Model
             ->where('category_id', '=', $id)
             ->orderBy('articles.id', 'desc')->paginate(15);
     }
+
+    public static function search($search)
+    {
+        return DB::table('articles')
+            ->join('subcategories', 'subcategories.id', '=', 'articles.subcategory_id')
+            ->join('categories', 'categories.id', '=', 'subcategories.category_id')
+            ->where('title', 'like', '%' . $search . '%')
+            ->where('caption', 'like', '%' . $search . '%')
+            ->where('description', 'like', '%' . $search . '%')
+            ->where('categories.category', 'like', '%' . $search . '%')
+            ->where('subcategories.sub_category', 'like', '%' . $search . '%')
+            ->orderBy('articles.id', 'desc')->paginate(15);
+    }
 }

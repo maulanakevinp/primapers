@@ -165,6 +165,23 @@
                 $('#patchSubcategory').attr('action', "{{ url('subcategory') }}/" + id + "/" + category);
                 $('#inputSubcategory').val(Subcategory);
             });
+            $('#search-category').on('change',function () {
+                const id = $(this).val();
+                if (id != '') {
+                    document.location.href = "{{ url('') }}/article/category/" + id;
+                } else {
+                    document.location.href = "{{ route('article.index')}}";
+                }
+            });
+            $('#search-subcategory').on('change',function () {
+                const id = $(this).val();
+                const category = $('#search-category').val();
+                if (id != '') {
+                    document.location.href = "{{ url('') }}/article/subcategory/" + id + "/" + category;
+                } else {
+                    document.location.href = "{{ url('') }}/article/category/" + category;
+                }
+            });
         });
     </script>
 </body>

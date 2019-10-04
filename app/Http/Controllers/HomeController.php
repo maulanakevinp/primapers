@@ -18,4 +18,15 @@ class HomeController extends Controller
         $articles = Article::orderBy('id', 'desc')->paginate(15);
         return view('home', compact('title', 'articles'));
     }
+
+    public function search(Request $request)
+    {
+        $title = 'Cari';
+        $request->validate([
+            'search' => 'required'
+        ]);
+        $search = $request->search;
+        $articles = Article::search($search);
+        return view('search', compact('title', 'search', 'articles'));
+    }
 }

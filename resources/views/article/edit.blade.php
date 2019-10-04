@@ -20,7 +20,7 @@
         @csrf
         @method('patch')
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6 mb-3">
                 <div class="card shadow h-100">
                     <div class="card-header">
                         <h5 class="m-0 pt-1 font-weight-bold text-primary">{{ __('Foto') }}</h5>
@@ -39,7 +39,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 mb-3">
                 <div class="card shadow h-100">
                     <div class="card-header">
                         <h5 class="m-0 pt-1 font-weight-bold text-primary">{{ $subtitle }}</h5>

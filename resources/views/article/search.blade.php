@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-{{ $title }} - {{ config('app.name') }}
+{{ $subtitle }} - {{ config('app.name') }}
 @endsection
 @section('container')
 
@@ -9,9 +9,9 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-2">
-        <h1 class="h3 mb-2 text-gray-800">{{ $title }}</h1>
+        <h1 class="h3 mb-2 text-gray-800">{{ $subtitle }}</h1>
     </div>
-    <div class="row mb-4">
+    <div class="row">
         <div class="col-lg-3 mb-3">
             <div class="btn-group">
                 <a href="{{route('article.trash')}}" class="btn  btn-warning">{{ __('Arsip') }}</a>
@@ -37,6 +37,8 @@
             </form>
         </div>
     </div>
+    <h5>{{__('Cari : ').$search}} </h5>
+    <p><small>{{__('Jumlah : ').$articles->count()}} </small></p>
     @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
@@ -50,6 +52,7 @@
     @endif
         <section class="clean-block clean-services">
             <div class="container">
+                
                 <div class="row">
                     @foreach ($articles as $article)
                         <div class="col-md-6 col-lg-4">

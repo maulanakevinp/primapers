@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-{{ $title }} - {{ config('app.name') }}
+{{ $subtitle }} - {{ config('app.name') }}
 @endsection
 @section('container')
 
@@ -9,7 +9,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-2">
-        <h1 class="h3 mb-2 text-gray-800">{{ $title }}</h1>
+        <h1 class="h3 mb-2 text-gray-800">{{ $subtitle }}</h1>
     </div>
     <div class="row mb-4">
         <div class="col-lg-3 mb-3">
@@ -22,13 +22,20 @@
             <select class="form-control" name="category" id="search-category">
                 <option value="">{{__('Pilih Kategori')}}</option>
                 @foreach ($categories as $category)
+                    @if ($Category->id == $category->id)
+                    <option selected="selected" value="{{$category->id}}">{{$category->category}}</option>
+                    @else
                     <option value="{{$category->id}}">{{$category->category}}</option>
+                    @endif
                 @endforeach
             </select>
         </div>
         <div class="col-lg-3 mb-3">
             <select class="form-control" name="subcategory" id="search-subcategory">
                 <option value="">{{__('Pilih Sub Kategori')}}</option>
+                @foreach ($Category->subcategories as $subcategory)
+                    <option value="{{$subcategory->id}}">{{$subcategory->sub_category}}</option>
+                @endforeach
             </select>
         </div>
         <div class="col-lg-3 mb-3">
@@ -50,22 +57,23 @@
     @endif
         <section class="clean-block clean-services">
             <div class="container">
-                <div class="row">
-                    @foreach ($articles as $article)
-                        <div class="col-md-6 col-lg-4">
-                            <a href="{{route('article.edit',$article->id)}}" class="card-link">
-                                <div class="card"><img class="card-img-top w-100 d-block" src="{{asset('img/article/'.$article->photo)}}">
-                                    <div class="card-body">
-                                        <h4 class="card-title title-article block-with-text text-dark">{{$article->title}}</h4>
-                                        <p class="card-text description-article block-with-text text-dark">{{$article->description}}</p>
-                                    </div>
+                @if ($articles->count() == 0)
+                    <h5 class="text-center">{{__('Artikel Belum Tersedia')}} </h5>
+                @endif
+                @foreach ($articles as $article)
+                    <div class="col-md-6 col-lg-4">
+                        <a href="{{route('article.edit',$article->id)}}" class="card-link">
+                            <div class="card"><img class="card-img-top w-100 d-block" src="{{asset('img/article/'.$article->photo)}}">
+                                <div class="card-body">
+                                    <h4 class="card-title title-article block-with-text text-dark">{{$article->title}}</h4>
+                                    <p class="card-text description-article block-with-text text-dark">{{$article->description}}</p>
                                 </div>
-                            </a>
-                        </div>
-                    @endforeach
-                </div>
-                {{ $articles->links() }}
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
             </div>
+            {{ $articles->links() }}
         </section>
 </div>
 <!-- /.container-fluid -->
