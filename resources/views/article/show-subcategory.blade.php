@@ -4,7 +4,6 @@
 @endsection
 @section('content')
 <main class="page service-page">
-    <section class="clean-block clean-services pt-4">
         <div class="container">
             <ol class="breadcrumb">
                 <li class="home"><a href="{{route('home')}}"><i class="fas fa-home"></i><span>{{__('Home')}}</span></a></li>
@@ -30,7 +29,6 @@
             </div>
             {{ $articles->links() }}
         </div>
-    </section>
 </main>
 @endsection
     

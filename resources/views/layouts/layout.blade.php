@@ -26,7 +26,7 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav">
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active text-uppercase" style="font-family:'Source Sans Pro', sans-serif;" href="#">{{$profile->title}}</a>
+                        <a class="nav-link active text-uppercase" style="font-family:'Source Sans Pro', sans-serif;" href="{{route('home')}}">{{$profile->title}}</a>
                     </li>
                     @foreach ($categories as $category)
                     <li class="nav-item dropdown">
