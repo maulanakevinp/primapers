@@ -35,7 +35,11 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::post('/subcategory/{category}', 'SubcategoryController@store')->name('subcategory.store');
     Route::patch('/subcategory/{id}/{category}', 'SubcategoryController@update')->name('subcategory.update');
     Route::delete('/subcategory/{id}/{category}', 'SubcategoryController@destroy')->name('subcategory.destroy');
+
     Route::resource('/profile', 'ProfileController')->except(['create', 'show', 'edit', 'store']);
+
+    Route::get('/change-password', 'UserController@changePassword')->name('change-password');
+    Route::patch('/update-password/{id}', 'UserController@updatePassword')->name('update-password');
 });
 
 Route::get('/', 'HomeController@index')->name('home');

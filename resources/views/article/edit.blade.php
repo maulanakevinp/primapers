@@ -25,11 +25,11 @@
                     <div class="card-header">
                         <h5 class="m-0 pt-1 font-weight-bold text-primary">{{ __('Foto') }}</h5>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body text-center">
                         <img id="photo" src="{{ asset('img/article/'.$article->photo) }}" class="mw-100">
-                        <div class="custom-file">
+                        <div class="custom-file mt-2">
                             <input type="file" class="custom-file-input @error('photo') is-invalid @enderror" id="photo" name="photo">
-                            <label class="custom-file-label" for="photo">{{__('Choose file')}}</label>
+                            <label class="custom-file-label" for="photo">{{__('Ganti Gambar')}}</label>
                         </div>
                         @error('photo')
                         <div class="invalid-feedback">

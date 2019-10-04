@@ -67,7 +67,7 @@ class SubcategoryController extends Controller
     public function destroy($id, $category)
     {
         Subcategory::destroy($id);
-        return redirect('/subcategory' . '/' . $category)->with('success', 'Sub Kategori berhasil diperbarui');
+        return redirect('/subcategory' . '/' . $category)->with('success', 'Sub Kategori berhasil dihapus');
     }
 
     public function getSubCategories(Request $request)

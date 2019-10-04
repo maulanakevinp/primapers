@@ -21,10 +21,16 @@
                             {{$article->title}}
                         </div>
                         <div class="card-body">
-                            <p class="text-muted d-inline-block"><small>{{ __('By ') }} {{ $profile->title }}</small></p>
-                            <p class="text-muted float-right"><small>{{ $article->created_at->format('d M Y - H:i:s') }}</small></p>
-                            <img class="mw-100" src="{{asset('img/article/'.$article->photo)}}" alt="{{$article->photo}}">
-                            <p class="text-muted"><small>{{$article->caption}}</small></p>
+                            <div class="text-muted">
+                                <p class="d-inline-block"><small>{{ __('By ') }} {{ $profile->title }}</small></p>
+                                <p class="float-right"><small>{{ $article->created_at->format('d M Y - H:i:s') }}</small></p>
+                            </div>
+                            <div class="img-fluid text-center">
+                                <img class="mw-100" src="{{asset('img/article/'.$article->photo)}}" alt="{{$article->photo}}">
+                            </div>
+                            <div class="text-muted">
+                                <small>{{$article->caption}}</small>
+                            </div>
                             <p class="text-justify mt-3">{{$article->description}}</p>
                         </div>
                     </div>

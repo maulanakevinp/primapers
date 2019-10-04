@@ -50,6 +50,17 @@
                         </a>
                     </li>
 
+                    @if ($title == 'Ganti Password')
+                    <li class="nav-item active">
+                    @else
+                    <li class="nav-item">
+                    @endif
+                        <a class="nav-link pb-0" href="{{ url('/change-password') }}">
+                            <i class="{{ __('fas fa-fw fa-key') }}"></i>
+                            <span>{{ __('Ganti Password') }}</span>
+                        </a>
+                    </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider mt-3">
 

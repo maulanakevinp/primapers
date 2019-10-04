@@ -3,7 +3,7 @@
     {{$category->category}} - {{config('app.name')}}
 @endsection
 @section('content')
-<main class="page service-page">
+    <main class="page service-page mb-5">
         <div class="container">
             <ol class="breadcrumb">
                 <li class="home"><a href="{{route('home')}}"><i class="fas fa-home"></i><span>{{__('Home')}}</span></a></li>
@@ -28,6 +28,6 @@
             </div>
             {{ $articles->links() }}
         </div>
-</main>
+    </main>
 @endsection
     

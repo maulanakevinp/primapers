@@ -28,7 +28,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'category' => 'required|string'
+            'category' => 'required|string|unique:categories'
         ]);
         Category::create([
             'category' => $request->category
@@ -63,6 +63,6 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         Category::destroy($id);
-        return redirect('/category')->with('success', 'Kategori berhasil diperbarui');
+        return redirect('/category')->with('success', 'Kategori berhasil dihapus');
     }
 }
