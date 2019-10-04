@@ -71,7 +71,7 @@
                                 <select class="form-control @error('sub_category') is-invalid @enderror" name="sub_category" id="sub_category">
                                     <option value="">{{__('Pilih Sub Kategori')}}</option>
                                     @foreach ($sub_categories as $sub_category)
-                                    @if ($article->subcategories_id == $sub_category->id)
+                                    @if ($article->subcategory_id == $sub_category->id)
                                     <option selected value="{{$sub_category->id}}">{{$sub_category->sub_category}}</option>
                                     @else
                                     <option value="{{$sub_category->id}}">{{$sub_category->sub_category}}</option>
