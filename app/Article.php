@@ -38,11 +38,11 @@ class Article extends Model
         return DB::table('articles')
             ->join('subcategories', 'subcategories.id', '=', 'articles.subcategory_id')
             ->join('categories', 'categories.id', '=', 'subcategories.category_id')
-            ->where('title', 'like', '%' . $search . '%')
-            ->where('caption', 'like', '%' . $search . '%')
-            ->where('description', 'like', '%' . $search . '%')
-            ->where('categories.category', 'like', '%' . $search . '%')
-            ->where('subcategories.sub_category', 'like', '%' . $search . '%')
+            ->where('articles.title', 'like', '%' . $search . '%')
+            ->orwhere('articles.caption', 'like', '%' . $search . '%')
+            ->orwhere('articles.description', 'like', '%' . $search . '%')
+            ->orwhere('categories.category', 'like', '%' . $search . '%')
+            ->orwhere('subcategories.sub_category', 'like', '%' . $search . '%')
             ->orderBy('articles.id', 'desc')->paginate(15);
     }
 }

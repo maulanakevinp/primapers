@@ -6,7 +6,10 @@
 <main class="page service-page mb-5 mt-3">
     <section class="clean-block clean-services">
         <div class="container">
-            <h5>{{__('Cari : '). $search}} </h5>
+            <ol class="breadcrumb">
+                <li class="home"><a href="{{route('home')}}"><i class="fas fa-home"></i><span>{{__('Home')}}</span></a></li>
+                <li class="active"><a href="#">{{__('Cari : '). $search}}</a></li>
+            </ol>
             @if ($articles->count() == 0)
                 <h5 class="text-center">{{__('Artikel Belum Tersedia')}} </h5>
             @endif
