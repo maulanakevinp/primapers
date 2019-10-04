@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('title')
-    {{$category->category}} - {{config('app.name')}}
+    {{$category->category}} | {{config('app.name')}}
 @endsection
 @section('content')
     <main class="page service-page mb-5">

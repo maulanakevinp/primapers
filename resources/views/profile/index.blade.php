@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-{{ __('VISI & MISI') }} - {{ config('app.name') }}
+{{ __('VISI & MISI') }} | {{ config('app.name') }}
 @endsection
 @section('container')
 

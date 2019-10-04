@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{asset('css/smoothproducts.css')}}">
     <link rel="stylesheet" href="{{asset('css/Nice-breadcrumb.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css') }}">
+    <link rel="icon" href="{{ asset('img/logo/bner.png') }}">
 
 </head>
 

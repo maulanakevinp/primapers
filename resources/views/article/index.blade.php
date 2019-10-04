@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-{{ $title }} - {{ config('app.name') }}
+{{ $title }} | {{ config('app.name') }}
 @endsection
 @section('container')
 

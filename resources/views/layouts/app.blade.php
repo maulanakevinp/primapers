@@ -12,6 +12,7 @@
     <title>
         @yield('title')
     </title>
+    <link rel="icon" href="{{ asset('img/logo/bner.png') }}">
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
