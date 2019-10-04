@@ -60,6 +60,9 @@
     </div>
     @endif
         <section class="clean-block clean-services">
+            @if ($articles->count() == 0)
+                <h5 class="text-center">{{__('Artikel Belum Tersedia')}} </h5>
+            @endif
             <div class="container">
                 @foreach ($articles as $article)
                     <div class="col-md-6 col-lg-4">
