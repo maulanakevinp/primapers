@@ -3,8 +3,8 @@
     {{$category->category}} | {{config('app.name')}}
 @endsection
 @section('content')
-    <main class="page service-page mb-5">
-    <section class="clean-block clean-services pt-4">
+    <main class="page service-page mb-5" style="height:400px">
+    <section class="clean-block clean-services">
         <div class="container">
             <ol class="breadcrumb">
                 <li class="home"><a href="{{route('home')}}"><i class="fas fa-home"></i><span>{{__('Home')}}</span></a></li>

@@ -3,10 +3,13 @@
     {{$title}} | {{config('app.name')}}
 @endsection
 @section('content')
-<main class="page service-page">
-    <section class="clean-block clean-services pt-4">
+<main class="page service-page" style="height:400px">
+    <section class="clean-block clean-services">
         <div class="container">
             <h5>{{__('Cari : '). $search}} </h5>
+            @if ($articles->count() == 0)
+                <h5 class="text-center">{{__('Artikel Belum Tersedia')}} </h5>
+            @endif
             <div class="row">
                 @foreach ($articles as $article)
                     <div class="col-md-6 col-lg-4">
