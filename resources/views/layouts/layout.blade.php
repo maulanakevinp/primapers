@@ -32,10 +32,10 @@
                     <li class="nav-item dropdown">
                         <a class="dropdown-toggle nav-link text-uppercase" data-toggle="dropdown" aria-expanded="false" style="font-family:'Source Sans Pro', sans-serif;" href="#">{{$category->category}}</a>
                         <div class="dropdown-menu" role="menu">
-                            <a class="dropdown-item text-uppercase" role="presentation" style="font-family:'Source Sans Pro', sans-serif;" href="#">{{$category->category}}</a>
+                            <a class="dropdown-item text-uppercase" role="presentation" style="font-family:'Source Sans Pro', sans-serif;" href="{{ route('kategori',['id' => $category->id, 'category' => strtolower(str_replace(' ','-',$category->category))]) }} ">{{$category->category}}</a>
                             <hr>
                             @foreach ($category->subcategories as $subcategory)
-                                <a class="dropdown-item text-uppercase" role="presentation" style="font-family:'Source Sans Pro', sans-serif;" href="{{route('kategori',strtolower(str_replace(' ','-',$article->title)))}}">{{$subcategory->sub_category}}</a>
+                                <a class="dropdown-item text-uppercase" role="presentation" style="font-family:'Source Sans Pro', sans-serif;" href="{{ route('sub-kategori', ['id' => $subcategory->id,'subcategory' => strtolower(str_replace(' ','-',$subcategory->sub_category))])}}">{{$subcategory->sub_category}}</a>
                             @endforeach
                         </div>
                     </li>

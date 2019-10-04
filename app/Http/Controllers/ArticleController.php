@@ -58,7 +58,7 @@ class ArticleController extends Controller
         $file->move(public_path('img/article'), $file_name);
 
         Article::create([
-            'subcategories_id' => $request->sub_category,
+            'subcategory_id' => $request->sub_category,
             'title' => $request->title,
             'caption' => $request->caption,
             'description' => $request->description,
@@ -113,7 +113,7 @@ class ArticleController extends Controller
         }
 
         Article::where('id', $id)->update([
-            'subcategories_id' => $request->sub_category,
+            'subcategory_id' => $request->sub_category,
             'title' => $request->title,
             'caption' => $request->caption,
             'description' => $request->description,
@@ -177,19 +177,21 @@ class ArticleController extends Controller
 
     public function showByCategory($id, $title)
     {
-        $article = Article::where('subcategory_id', $id)->get();
-        if (empty($article)) {
+        $category = Category::where('id', $id)->where('category', str_replace('-', ' ', $title))->first();
+        $articles = Article::getByCategory($id);
+        if (empty($category)) {
             return abort(404, 'Not Found');
         }
-        return view('article.show-by-category', compact('article'));
+        return view('article.show-category', compact('category', 'articles'));
     }
 
     public function showBySubcategory($id, $title)
     {
-        $article = Article::where('subcategory_id', $id)->get();
-        if (empty($article)) {
+        $subcategory = Subcategory::where('id', $id)->where('sub_category', str_replace('-', ' ', $title))->first();
+        $articles = Article::where('subcategory_id', $id)->paginate(15);
+        if (empty($subcategory)) {
             return abort(404, 'Not Found');
         }
-        return view('article.show', compact('article'));
+        return view('article.show-subcategory', compact('subcategory', 'articles'));
     }
 }

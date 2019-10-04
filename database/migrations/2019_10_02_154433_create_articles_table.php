@@ -15,7 +15,7 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('subcategories_id');
+            $table->unsignedBigInteger('subcategory_id');
             $table->string('title');
             $table->text('description');
             $table->string('caption');
@@ -23,7 +23,7 @@ class CreateArticlesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('subcategories_id')->references('id')->on('subcategories')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('subcategory_id')->references('id')->on('subcategories')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

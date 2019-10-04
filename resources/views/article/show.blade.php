@@ -10,8 +10,8 @@
         <div class="container">
             <ol class="breadcrumb">
                 <li class="home"><a href="{{route('home')}}"><i class="fas fa-home"></i><span>{{__('Home')}}</span></a></li>
-                <li><a href="#">{{$article->subcategories->category->category}}</a></li>
-                <li><a href="#">{{$article->subcategories->sub_category}}</a></li>
+                <li><a href="{{ route('kategori',['id' => $article->subcategory->category->id, 'category' => strtolower(str_replace(' ','-',$article->subcategory->category->category))]) }}">{{$article->subcategory->category->category}}</a></li>
+                <li><a href="{{ route('sub-kategori', ['id' => $article->subcategory->id,'subcategory' => strtolower(str_replace(' ','-',$article->subcategory->sub_category))])}}">{{$article->subcategory->sub_category}}</a></li>
                 <li class="active"><a href="#">{{$article->title}}</a></li>
             </ol>
             <div class="row">

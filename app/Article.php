@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 
 class Article extends Model
 {
@@ -15,11 +16,19 @@ class Article extends Model
      * @var array
      */
     protected $fillable = [
-        'subcategories_id', 'title', 'description', 'caption', 'photo'
+        'subcategory_id', 'title', 'description', 'caption', 'photo'
     ];
 
-    public function subcategories()
+    public function subcategory()
     {
         return $this->belongsTo('App\Subcategory');
+    }
+
+    public static function getByCategory($id)
+    {
+        return DB::table('articles')
+            ->join('subcategories', 'subcategories.id', '=', 'articles.subcategory_id')
+            ->join('categories', 'categories.id', '=', 'subcategories.category_id')
+            ->where('category_id', '=', $id)->paginate(15);
     }
 }
