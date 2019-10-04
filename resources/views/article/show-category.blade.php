@@ -3,7 +3,7 @@
     {{$category->category}} | {{config('app.name')}}
 @endsection
 @section('content')
-    <main class="page service-page mb-5" style="height:400px">
+    <main class="page service-page mb-5 mt-3">
     <section class="clean-block clean-services">
         <div class="container">
             <ol class="breadcrumb">

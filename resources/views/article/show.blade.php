@@ -6,7 +6,7 @@
 @php
     $profile = \App\Profile::find(1);
 @endphp
-    <main class="page blog-post mb-5 ">
+    <main class="page blog-post mb-5 mt-3">
         <div class="container">
             <ol class="breadcrumb">
                 <li class="home"><a href="{{route('home')}}"><i class="fas fa-home"></i><span>{{__('Home')}}</span></a></li>

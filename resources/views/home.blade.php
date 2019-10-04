@@ -3,9 +3,12 @@
     {{$title}} | {{config('app.name')}}
 @endsection
 @section('content')
-<main class="page service-page">
-    <section class="clean-block clean-services pt-4">
+<main class="page service-page mb-5 mt-3">
+    <section class="clean-block clean-services ">
         <div class="container">
+            <ol class="breadcrumb">
+                <li class="home"><a href="{{route('home')}}"><i class="fas fa-home"></i><span>{{__('Home')}}</span></a></li>
+            </ol>
             <div class="row ">
                 @foreach ($articles as $article)
                     <div class="col-md-6 col-lg-4">
