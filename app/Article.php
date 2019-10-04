@@ -29,6 +29,7 @@ class Article extends Model
         return DB::table('articles')
             ->join('subcategories', 'subcategories.id', '=', 'articles.subcategory_id')
             ->join('categories', 'categories.id', '=', 'subcategories.category_id')
-            ->where('category_id', '=', $id)->paginate(15);
+            ->where('category_id', '=', $id)
+            ->orderBy('articles.id', 'desc')->paginate(15);
     }
 }

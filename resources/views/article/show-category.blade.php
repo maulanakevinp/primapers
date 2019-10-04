@@ -4,11 +4,15 @@
 @endsection
 @section('content')
     <main class="page service-page mb-5">
+    <section class="clean-block clean-services pt-4">
         <div class="container">
             <ol class="breadcrumb">
                 <li class="home"><a href="{{route('home')}}"><i class="fas fa-home"></i><span>{{__('Home')}}</span></a></li>
                 <li class="active"><a href="#">{{$category->category}}</a></li>
             </ol>
+            @if ($articles->count() == 0)
+                <h4 class="text-center">{{__('Belum Ada Artikel')}} </h4>
+            @endif
             <div class="row ">
                 @foreach ($articles as $article)
                     <div class="col-md-6 col-lg-4">
@@ -28,6 +32,7 @@
             </div>
             {{ $articles->links() }}
         </div>
+    </section>
     </main>
 @endsection
     

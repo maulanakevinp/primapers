@@ -40,26 +40,19 @@
                         <div class="card-header font-weight-bold">
                             {{_('Artikel Lainnya')}}
                         </div>
-                        <div class="card-body overflow-hidden" style="height:500px">
+                        <div class="card-body overflow-auto" style="height:500px">
                             @foreach ($articles as $articl)
                                 @if ($articl->id != $article->id)
                                 <div class="clean-blog-post p-0">
-                                    <div class="row">
-                                        <div class="col-lg-5">
-                                            <img class="rounded img-fluid" src="{{asset('img/article/'.$articl->photo)}}" alt="{{$articl->photo}}">
-                                            <p class="text-muted "><small>{{ $article->created_at->format('d M Y') }}</small></p>
-
-                                        </div>
-                                        <div class="col-lg-7">
-                                            <p class="font-weight-bold">{{$articl->title}}</p>
-                                            <p class="description-article block-with-text text-justify">
-                                                {{$articl->description}}
-                                            </p>
-                                            <form action="{{route('show',['id' => $article->id , 'title' => strtolower(str_replace(' ','-',$article->title))])}}" method="get">
-                                                <button class="btn btn-outline-primary btn-sm" type="submit">{{__('Read More')}}</button>
-                                            </form>
-                                        </div>
-                                    </div>
+                                    <img class="rounded img-fluid" src="{{asset('img/article/'.$articl->photo)}}" alt="{{$articl->photo}}">
+                                    <p class="text-muted "><small>{{ $articl->created_at->format('d M Y') }}</small></p>
+                                    <p class="font-weight-bold title-article block-with-text">{{$articl->title}}</p>
+                                    <p class="description-article block-with-text text-justify">
+                                        {{$articl->description}}
+                                    </p>
+                                    <form action="{{route('show',['id' => $articl->id , 'title' => strtolower(str_replace(' ','-',$articl->title))])}}" method="get">
+                                        <button class="btn btn-outline-primary btn-sm" type="submit">{{__('Read More')}}</button>
+                                    </form>
                                 </div>
                                 <hr>
                                 @endif

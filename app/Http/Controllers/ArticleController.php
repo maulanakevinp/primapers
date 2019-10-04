@@ -19,7 +19,7 @@ class ArticleController extends Controller
     public function index()
     {
         $title = "Artikel";
-        $articles = Article::paginate(15);
+        $articles = Article::orderBy('id', 'desc')->paginate(15);
         return view('article.index', compact('title', 'articles'));
     }
 
@@ -131,9 +131,9 @@ class ArticleController extends Controller
 
         if ($delete) {
             $article->forceDelete();
-            return redirect('/article')->with('success', 'Artikel berhasil dihapus');
+            return redirect('/article/trash')->with('success', 'Artikel berhasil dihapus');
         } else {
-            return redirect('/article')->with('failed', 'Artikel tidak berhasil dihapus');
+            return redirect('/article/trash')->with('failed', 'Artikel tidak berhasil dihapus');
         }
     }
 
@@ -169,7 +169,7 @@ class ArticleController extends Controller
     public function show($id, $title)
     {
         $article = Article::where('id', $id)->where('title', str_replace('-', ' ', $title))->first();
-        $articles = Article::where('subcategory_id', $article->subcategory_id)->get();
+        $articles = Article::where('subcategory_id', $article->subcategory_id)->orderBy('id', 'desc')->paginate(10);
         if (empty($article)) {
             return abort(404, 'Not Found');
         }
@@ -189,7 +189,7 @@ class ArticleController extends Controller
     public function showBySubcategory($id, $title)
     {
         $subcategory = Subcategory::where('id', $id)->where('sub_category', str_replace('-', ' ', $title))->first();
-        $articles = Article::where('subcategory_id', $id)->paginate(15);
+        $articles = Article::where('subcategory_id', $id)->orderBy('id', 'desc')->paginate(15);
         if (empty($subcategory)) {
             return abort(404, 'Not Found');
         }

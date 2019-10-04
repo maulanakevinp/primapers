@@ -33,7 +33,7 @@
                         <div class="col-md-6 col-lg-4">
                             <div class="card"><img class="card-img-top w-100 d-block" src="{{asset('img/article/'.$article->photo)}}">
                                 <div class="card-body">
-                                    <h4 class="card-title title-article block-with-text white-space">{{$article->title}}</h4>
+                                    <h4 class="card-title title-article block-with-text">{{$article->title}}</h4>
                                     <p class="card-text description-article block-with-text">{{$article->description}}</p>
                                 </div>
                                 <div>
