@@ -33,7 +33,7 @@
             <div class="col-lg-6 mb-3">
                 <div class="card shadow h-100">
                     <div class="card-header">
-                        <h5 class="m-0 pt-1 font-weight-bold text-success">{{ __('Struktur Organisasi') }}</h5>
+                        <h5 class="m-0 pt-1 font-weight-bold text-primary">{{ __('Struktur Organisasi') }}</h5>
                     </div>
                     <div class="card-body">
                         <img id="photo" src="{{ asset('img/profile/'.$profile->photo) }}" class="mw-100">
@@ -52,7 +52,7 @@
             <div class="col-lg-6 mb-3">
                 <div class="card shadow h-100">
                     <div class="card-header">
-                        <h5 class="m-0 pt-1 font-weight-bold text-success">{{ __('Visi & Misi') }}</h5>
+                        <h5 class="m-0 pt-1 font-weight-bold text-primary">{{ __('Visi & Misi') }}</h5>
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
@@ -94,7 +94,7 @@
             <div class="col-lg-12">
                 <div class="card shadow h-100">
                     <div class="card-header">
-                        <h5 class="m-0 pt-1 font-weight-bold text-success">{{ __('Sejarah & Tentang Kami') }}</h5>
+                        <h5 class="m-0 pt-1 font-weight-bold text-primary">{{ __('Sejarah & Tentang Kami') }}</h5>
                     </div>
                     <div class="card-body">
                         <div class="form-group">
