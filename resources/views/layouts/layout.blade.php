@@ -58,18 +58,24 @@
                 </div>
                 <div class="col-sm-5">
                     <h5>{{__('Tentang Kami')}}</h5>
-                    <p class="text-justify text-white">
+                    <p class="text-justify text-white description-article block-with-text">
                         <small>
                             {{$profile->about}}
                         </small>
+                        <div>
+                            <a href="{{route('about')}}" class="badge badge-outline-secondary badge-sm">{{__('Baca Lebih Lanjut')}}</a>
+                        </div>
                     </p>
                 </div>
                 <div class="col-sm-4">
                     <h5>{{__('Jejak Sejarah')}}</h5>
-                    <p class="text-justify text-white">
+                    <p class="text-justify text-white description-article block-with-text">
                         <small>
                             {{$profile->history}}
                         </small>
+                        <div>
+                            <a href="{{route('about')}}" class="badge badge-outline-secondary badge-sm">{{__('Baca Lebih Lanjut')}}</a>
+                        </div>
                     </p>
                 </div>
             </div>

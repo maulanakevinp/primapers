@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Profile;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -28,5 +29,12 @@ class HomeController extends Controller
         $search = $request->search;
         $articles = Article::search($search);
         return view('search', compact('title', 'search', 'articles'));
+    }
+
+    public function about()
+    {
+        $profile = Profile::find(1);
+        $title = 'Tentang Kami';
+        return view('profile.show', compact('title', 'profile'));
     }
 }

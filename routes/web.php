@@ -46,6 +46,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 });
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/tentang-kami', 'HomeController@about')->name('about');
 Route::get('/search', 'HomeController@search')->name('search');
 Route::get('/artikel/{id}/{title}', 'ArticleController@show')->name('show');
 Route::get('/kategori/{id}/{berita}', 'ArticleController@showByCategory')->name('kategori');
