@@ -61,6 +61,13 @@
                         </a>
                     </li>
 
+                    <hr class="sidebar-divider mt-3">
+                    <li class="nav-item">
+                        <a class="nav-link pb-0" href="" data-toggle="modal" data-target="#logoutModal">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                            <span>{{ __('Logout') }}</span>
+                        </a>
+                    </li>
             <!-- Divider -->
             <hr class="sidebar-divider mt-3">
 
