@@ -11,9 +11,14 @@
     <link rel="stylesheet" href="{{asset('fonts/simple-line-icons.min.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
     <link rel="stylesheet" href="{{asset('css/smoothproducts.css')}}">
-    <link rel="stylesheet" href="{{asset('css/Nice-breadcrumb.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css') }}">
     <link rel="icon" href="{{ asset('img/logo/bner.png') }}">
+    
+    <style>
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: ">";
+        }
+    </style>
 
 </head>
 
@@ -82,6 +87,8 @@
         </div>
         <div class="footer-copyright">
             <p>© {{now()->year}} Copyright {{$profile->title}}</p>
+            <p>Powered by <a target="_blank" href="http://lavinza.me">Lavinza</a></p>
+
         </div>
     </footer>
     <script src="{{asset('js/jquery.min.js')}}"></script>

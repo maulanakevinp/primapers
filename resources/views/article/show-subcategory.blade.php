@@ -7,9 +7,9 @@
     <section class="clean-block clean-services">
         <div class="container">
             <ol class="breadcrumb">
-                <li class="home"><a href="{{route('home')}}"><i class="fas fa-home"></i><span>{{__('Home')}}</span></a></li>
-                <li><a href="{{ route('kategori',['id' => $subcategory->category->id, 'category' => strtolower(str_replace(' ','-',$subcategory->category->category))]) }}">{{$subcategory->category->category}}</a></li>
-                <li class="active"><a href="#">{{$subcategory->sub_category}}</a></li>
+                <li class="breadcrumb-item"><a class="card-link" href="{{route('home')}}"><i class="fas fa-home"></i><span>{{__('Home')}}</span></a></li>
+                <li class="breadcrumb-item"><a class="card-link" href="{{ route('kategori',['id' => $subcategory->category->id, 'category' => strtolower(str_replace(' ','-',$subcategory->category->category))]) }}">{{$subcategory->category->category}}</a></li>
+                <li class="breadcrumb-item active">{{$subcategory->sub_category}}</li>
             </ol>
             @if ($articles->count() == 0)
                 <h4 class="text-center">{{__('Belum Ada Artikel')}} </h4>
@@ -21,10 +21,10 @@
                             <div class="card">
                                 <img class="card-img-top w-100 d-block" src="{{asset('img/article/'.$article->photo)}}">
                                 <div class="card-body">
-                                    <h4 class="card-title title-article block-with-text text-dark">
+                                    <h4 class="card-title title-article block-with-text text-dark" style="height: 40px">
                                         {{$article->title}}
                                     </h4>
-                                    <p class="card-text description-article block-with-text text-dark">{{$article->description}}</p>
+                                    <p class="card-text description-article block-with-text text-dark" style="height: 60px">{{$article->description}}</p>
                                 </div>
                             </div>
                         </a>

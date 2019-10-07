@@ -6,9 +6,6 @@
 <main class="page service-page mb-5 mt-3">
     <section class="clean-block clean-services ">
         <div class="container">
-            <ol class="breadcrumb">
-                <li class="home"><a href="{{route('home')}}"><i class="fas fa-home"></i><span>{{__('Home')}}</span></a></li>
-            </ol>
             <div class="row ">
                 @foreach ($articles as $article)
                     <div class="col-md-6 col-lg-4">
@@ -16,10 +13,10 @@
                             <div class="card">
                                 <img class="card-img-top w-100 d-block" src="{{asset('img/article/'.$article->photo)}}">
                                 <div class="card-body">
-                                    <h4 class="card-title title-article block-with-text text-dark">
+                                    <h4 class="card-title title-article block-with-text text-dark" style="height: 40px">
                                         {{$article->title}}
                                     </h4>
-                                    <p class="card-text description-article block-with-text text-dark">{{$article->description}}</p>
+                                    <p class="card-text description-article block-with-text text-dark" style="height: 60px">{{$article->description}}</p>
                                 </div>
                             </div>
                         </a>

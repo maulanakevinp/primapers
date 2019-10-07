@@ -16,7 +16,7 @@ class Article extends Model
      * @var array
      */
     protected $fillable = [
-        'subcategory_id', 'title', 'description', 'caption', 'photo'
+        'subcategory_id', 'title', 'description', 'caption', 'photo', 'video'
     ];
 
     public function subcategory()

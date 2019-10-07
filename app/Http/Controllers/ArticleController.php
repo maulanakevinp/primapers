@@ -51,7 +51,8 @@ class ArticleController extends Controller
             'title' => 'required',
             'caption' => 'required',
             'description' => 'required',
-            'photo' => 'required|image|mimes:jpeg,png,gif,webp|max:2048'
+            'photo' => 'required|image|mimes:jpeg,png,gif,webp|max:2048',
+            'video' => 'nullable'
         ]);
 
         $file = $request->file('photo');
@@ -63,7 +64,8 @@ class ArticleController extends Controller
             'title' => $request->title,
             'caption' => $request->caption,
             'description' => $request->description,
-            'photo' => $file_name
+            'photo' => $file_name,
+            'video' => $request->video,
         ]);
 
         return redirect('/article')->with('success', 'Artikel baru berhasil ditambahkan');
@@ -101,7 +103,8 @@ class ArticleController extends Controller
             'title' => 'required',
             'caption' => 'required',
             'description' => 'required',
-            'photo' => 'image|mimes:jpeg,png,gif,webp|max:2048'
+            'photo' => 'image|mimes:jpeg,png,gif,webp|max:2048',
+            'video' => 'nullable'
         ]);
 
         $file = $request->file('photo');
@@ -118,7 +121,8 @@ class ArticleController extends Controller
             'title' => $request->title,
             'caption' => $request->caption,
             'description' => $request->description,
-            'photo' => $photo
+            'photo' => $photo,
+            'video' => $request->video,
         ]);
 
         return redirect('/article')->with('success', 'Artikel baru berhasil diperbarui');

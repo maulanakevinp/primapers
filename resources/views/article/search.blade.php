@@ -61,8 +61,8 @@
                             <a href="{{route('article.edit',$article->id)}}" class="card-link">
                                 <div class="card"><img class="card-img-top w-100 d-block" src="{{asset('img/article/'.$article->photo)}}">
                                     <div class="card-body">
-                                        <h4 class="card-title title-article block-with-text text-dark">{{$article->title}}</h4>
-                                        <p class="card-text description-article block-with-text text-dark">{{$article->description}}</p>
+                                        <h4 class="card-title title-article block-with-text text-dark" style="height: 40px">{{$article->title}}</h4>
+                                        <p class="card-text description-article block-with-text text-dark" style="height: 60px">{{$article->description}}</p>
                                     </div>
                                 </div>
                             </a>

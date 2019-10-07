@@ -19,7 +19,7 @@
     <form action=" {{ route('article.store') }} " method="post" enctype="multipart/form-data">
         @csrf
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6 mb-3">
                 <div class="card shadow h-100">
                     <div class="card-header">
                         <h5 class="m-0 pt-1 font-weight-bold text-primary">{{ __('Foto') }}</h5>
@@ -93,6 +93,17 @@
                             <div class="col-sm-9">
                                 <input type="text" class="form-control @error('caption') is-invalid @enderror" id="caption" name="caption" value="{{ old('caption') }}" autocomplete="off">
                                 @error('caption')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="video" class="col-sm-3 col-form-label">{{__('Video youtube')}}</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control @error('video') is-invalid @enderror" id="video" name="video" value="{{ old('video') }}" autocomplete="off">
+                                @error('video')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>

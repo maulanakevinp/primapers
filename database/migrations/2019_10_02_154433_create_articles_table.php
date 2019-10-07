@@ -20,6 +20,7 @@ class CreateArticlesTable extends Migration
             $table->text('description');
             $table->string('caption', 64);
             $table->string('photo');
+            $table->string('video')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

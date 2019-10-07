@@ -108,6 +108,17 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="video" class="col-sm-3 col-form-label">{{__('Video youtube')}}</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control @error('video') is-invalid @enderror" id="video" name="video" value="{{ $article->video }}" autocomplete="off">
+                                @error('video')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="description" class="col-sm-3 col-form-label">{{__('Deskripsi')}}</label>
                             <div class="col-sm-9">
                                 <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description" rows="5" >{{ $article->description }}</textarea>

@@ -8,14 +8,16 @@
 @endphp
     <main class="page blog-post mb-5 mt-3">
         <div class="container">
-            <ol class="breadcrumb">
-                <li class="home"><a href="{{route('home')}}"><i class="fas fa-home"></i><span>{{__('Home')}}</span></a></li>
-                <li><a href="{{ route('kategori',['id' => $article->subcategory->category->id, 'category' => strtolower(str_replace(' ','-',$article->subcategory->category->category))]) }}">{{$article->subcategory->category->category}}</a></li>
-                <li><a href="{{ route('sub-kategori', ['id' => $article->subcategory->id,'subcategory' => strtolower(str_replace(' ','-',$article->subcategory->sub_category))])}}">{{$article->subcategory->sub_category}}</a></li>
-                <li class="active"><a href="#">{{$article->title}}</a></li>
-            </ol>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a class="card-link" href="{{route('home')}}"><i class="fas fa-home"></i><span>{{__('Home')}}</span></a></li>
+                    <li class="breadcrumb-item"><a class="card-link" href="{{ route('kategori',['id' => $article->subcategory->category->id, 'category' => strtolower(str_replace(' ','-',$article->subcategory->category->category))]) }}">{{$article->subcategory->category->category}}</a></li>
+                    <li class="breadcrumb-item"><a class="card-link" href="{{ route('sub-kategori', ['id' => $article->subcategory->id,'subcategory' => strtolower(str_replace(' ','-',$article->subcategory->sub_category))])}}">{{$article->subcategory->sub_category}}</a></li>
+                    <li class="breadcrumb-item active">{{$article->title}}</li>
+                </ol>
+            </nav>
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-8 mb-3">
                     <div class="card">
                         <div class="card-header font-weight-bold">
                             {{$article->title}}
@@ -32,6 +34,9 @@
                                 <small>{{$article->caption}}</small>
                             </div>
                             <p class="text-justify mt-3">{{$article->description}}</p>
+                            @if ($article->video != null)
+                                <iframe width="100%" height="350" src="{{'https://www.youtube.com/embed/'.$article->video}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            @endif
                         </div>
                     </div>
                 </div>

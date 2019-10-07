@@ -14,19 +14,20 @@
                 <a href="{{route('article.index')}}" class="btn btn-sm btn-outline-secondary">{{ __('Kembali ke Artikel') }}</a>
                 <a href="{{route('article.restoreAll')}}" class="btn btn-warning btn-sm">{{__('Kembalikan Semua Artikel')}}</a>
             </div>
-        @if (session('success'))
+        
+    </div>
+
+    @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
-        @endif
+    @endif
 
-        @if (session('failed'))
+    @if (session('failed'))
         <div class="alert alert-danger">
             {{ session('failed') }}
         </div>
-        @endif
-    </div>
-
+    @endif
     <section class="clean-block clean-services pb-5">
         <div class="container">
             <div class="row">
@@ -34,8 +35,8 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="card"><img class="card-img-top w-100 d-block" src="{{asset('img/article/'.$article->photo)}}">
                         <div class="card-body">
-                            <h4 class="card-title title-article block-with-text white-space">{{$article->title}}</h4>
-                            <p class="card-text description-article block-with-text">{{$article->description}}</p>
+                            <h4 class="card-title title-article block-with-text white-space" style="height: 40px">{{$article->title}}</h4>
+                            <p class="card-text description-article block-with-text" style="height: 60px">{{$article->description}}</p>
                         </div>
                         <div>
                             <div class="row">
