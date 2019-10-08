@@ -39,6 +39,7 @@
                         </a>
                     </li>
 
+
                     @if ($title == 'Kategori')
                     <li class="nav-item active">
                     @else
@@ -50,18 +51,38 @@
                         </a>
                     </li>
 
-                    @if ($title == 'Ganti Password')
+                    @if ($title == 'Pengumuman')
                     <li class="nav-item active">
                     @else
                     <li class="nav-item">
                     @endif
-                        <a class="nav-link pb-0" href="{{ url('/change-password') }}">
-                            <i class="{{ __('fas fa-fw fa-key') }}"></i>
-                            <span>{{ __('Ganti Password') }}</span>
+                        <a class="nav-link pb-0" href="{{ url('/pengumuman') }}">
+                            <i class="{{ __('fas fa-fw fa-bullhorn') }}"></i>
+                            <span>{{ __('Pengumuman') }}</span>
                         </a>
                     </li>
 
                     <hr class="sidebar-divider mt-3">
+                    
+                    <!-- Nav Item - Utilities Collapse Menu -->
+                    @if ($title == 'Utilities')
+                    <li class="nav-item active">
+                    @else
+                    <li class="nav-item">
+                    @endif
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                            <i class="fas fa-fw fa-wrench"></i>
+                            <span>Utilities</span>
+                        </a>
+                        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Custom Utilities:</h6>
+                                <a class="collapse-item" href="{{ url('/header') }}">Header</a>
+                                <a class="collapse-item" href="{{ url('/slide') }}">Slide show</a>
+                                <a class="collapse-item" href="{{ url('/change-password') }}">Ganti password</a>
+                            </div>
+                        </div>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link pb-0" href="" data-toggle="modal" data-target="#logoutModal">
                             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

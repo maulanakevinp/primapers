@@ -174,10 +174,10 @@ class ArticleController extends Controller
     public function show($id, $title)
     {
         $article = Article::where('id', $id)->where('title', str_replace('-', ' ', $title))->first();
-        $articles = Article::where('subcategory_id', $article->subcategory_id)->orderBy('id', 'desc')->paginate(10);
         if (empty($article)) {
             return abort(404, 'Not Found');
         }
+        $articles = Article::where('subcategory_id', $article->subcategory_id)->orderBy('id', 'desc')->paginate(10);
         return view('article.show', compact('article', 'articles'));
     }
 
@@ -194,10 +194,10 @@ class ArticleController extends Controller
     public function showBySubcategory($id, $title)
     {
         $subcategory = Subcategory::where('id', $id)->where('sub_category', str_replace('-', ' ', $title))->first();
-        $articles = Article::where('subcategory_id', $id)->orderBy('id', 'desc')->paginate(15);
         if (empty($subcategory)) {
             return abort(404, 'Not Found');
         }
+        $articles = Article::where('subcategory_id', $id)->orderBy('id', 'desc')->paginate(15);
         return view('article.show-subcategory', compact('subcategory', 'articles'));
     }
 

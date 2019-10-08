@@ -43,6 +43,10 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
     Route::get('/change-password', 'UserController@changePassword')->name('change-password');
     Route::patch('/update-password/{id}', 'UserController@updatePassword')->name('update-password');
+
+    Route::get('/slide', 'UtilityController@slide');
+    Route::patch('/update-slide/{photo}', 'UtilityController@updateSlide')->name('update-slide');
+    Route::delete('/destroy-slide/{photo}', 'UtilityController@destroySlide')->name('destroy-slide');
 });
 
 Route::get('/', 'HomeController@index')->name('home');

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Announcement;
 use App\Article;
 use App\Profile;
+use App\Utility;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -16,8 +18,11 @@ class HomeController extends Controller
     public function index()
     {
         $title = 'Home';
+        $utility = Utility::find(1);
+        $profile = Profile::find(1);
         $articles = Article::orderBy('id', 'desc')->paginate(15);
-        return view('home', compact('title', 'articles'));
+        $announcements = Announcement::all();
+        return view('home', compact('title', 'articles', 'utility', 'profile', 'announcements'));
     }
 
     public function search(Request $request)

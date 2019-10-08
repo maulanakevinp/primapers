@@ -26,18 +26,19 @@
     @php
         $categories = \App\Category::all();
         $profile = \App\Profile::find(1);
+        $utility = \App\Utility::find(1);
     @endphp
-    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar" @if($utility->header != null) style="background-image: url(&quot;{{ asset('img/navbar/gambar-background-kayu-hd.jpg') }}&quot;);" @endif>
         <div class="container">
             <div><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav">
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active text-uppercase" style="font-family:'Source Sans Pro', sans-serif;" href="{{route('home')}}">{{$profile->title}}</a>
+                        <a class="nav-link active text-uppercase" style="font-family:'Source Sans Pro', sans-serif; color: {{ $utility->color }};" href="{{route('home')}}">{{$profile->title}}</a>
                     </li>
                     @foreach ($categories as $category)
                     <li class="nav-item dropdown">
-                        <a class="dropdown-toggle nav-link text-uppercase" data-toggle="dropdown" aria-expanded="false" style="font-family:'Source Sans Pro', sans-serif;" href="#">{{$category->category}}</a>
+                        <a class="dropdown-toggle nav-link text-uppercase" data-toggle="dropdown" aria-expanded="false" style="font-family:'Source Sans Pro', sans-serif; color: {{ $utility->color }};" href="#">{{$category->category}}</a>
                         <div class="dropdown-menu" role="menu">
                             <a class="dropdown-item text-uppercase" role="presentation" style="font-family:'Source Sans Pro', sans-serif;" href="{{ route('kategori',['id' => $category->id, 'category' => strtolower(str_replace(' ','-',$category->category))]) }} ">{{$category->category}}</a>
                             <hr>
@@ -87,7 +88,7 @@
         </div>
         <div class="footer-copyright">
             <p>© {{now()->year}} Copyright {{$profile->title}}</p>
-            <p>Powered by <a target="_blank" href="http://lavinza.me">Lavinza</a></p>
+            <p><small>Powered by <a target="_blank" href="http://lavinza.me">Lavinza</a></small></p>
 
         </div>
     </footer>
