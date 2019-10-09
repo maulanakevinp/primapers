@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function changePassword()
     {
-        $title = 'Ganti Password';
+        $title = 'Utilities';
         return view('auth.change-password', compact('title'));
     }
 

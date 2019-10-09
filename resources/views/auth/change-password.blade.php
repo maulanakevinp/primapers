@@ -1,27 +1,27 @@
 @extends('layouts.master')
 @section('title')
-{{ $title }} | {{ config('app.name') }}
+{{ 'Ganti Password' }} | {{ config('app.name') }}
 @endsection
 @section('container')
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
-        @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-        @endif
+    @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
 
-        @if (session('failed'))
-        <div class="alert alert-danger">
-            {{ session('failed') }}
-        </div>
-        @endif
+    @if (session('failed'))
+    <div class="alert alert-danger">
+        {{ session('failed') }}
+    </div>
+    @endif
     <div class="row">
         <div class="col-lg-6">
             <div class="card shadow h-100">
                 <div class="card-header">
-                    <h5 class="m-0 pt-1 font-weight-bold text-primary">{{ $title }}</h5>
+                    <h5 class="m-0 pt-1 font-weight-bold text-primary">{{ 'Ganti Password' }}</h5>
                 </div>
                 <div class="card-body">
                     <form action=" {{ route('update-password', [ 'id' => Auth::user()->id ]) }} " method="post">
