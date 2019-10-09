@@ -56,7 +56,7 @@
                     @else
                     <li class="nav-item">
                     @endif
-                        <a class="nav-link pb-0" href="{{ url('/pengumuman') }}">
+                        <a class="nav-link pb-0" href="{{ url('/announcement') }}">
                             <i class="{{ __('fas fa-fw fa-bullhorn') }}"></i>
                             <span>{{ __('Pengumuman') }}</span>
                         </a>

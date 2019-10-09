@@ -158,6 +158,12 @@
                 $('#patchCategory').attr('action', "{{ url('category') }}/" + id);
                 $('#inputCategory').val(category);
             });
+            $('.editAnnouncement').on('click', function() {
+                const id = $(this).data('id');
+                const announcement = $(this).data('announcement');
+                $('#patchAnnouncement').attr('action', "{{ url('announcement') }}/" + id);
+                $('#inputAnnouncement').val(announcement);
+            });
             $('.editSubcategory').on('click', function() {
                 const id = $(this).data('id');
                 const Subcategory = $(this).data('subcategory');

@@ -17,7 +17,7 @@
                                 @for ($i = 2; $i <= 6; $i++)
                                 @if (!empty($utility['photo'.$i]))
                                 <div class="carousel-item">
-                                    <img class="w-100" style="height:400px" src="{{ asset('img/carousel/'.$utility['photo'.$i]) }}" alt="{{ $utility['photo'.$i] }}">
+                                    <img class="w-100" style="height:350px" src="{{ asset('img/carousel/'.$utility['photo'.$i]) }}" alt="{{ $utility['photo'.$i] }}">
                                 </div>
                                 @endif
                                 @endfor
@@ -31,7 +31,7 @@
                         <div class="card-header">
                             <h6 class="font-weight-bold"><i class="fas fa-bullhorn"></i> Pengumuman</h6>
                         </div>
-                        <div class="card-body text-left">
+                        <div class="card-body text-left overflow-auto" style="height:350px">
                             @foreach ($announcements as $announcement)
                                 {{ $announcement->description }}
                                 <hr>

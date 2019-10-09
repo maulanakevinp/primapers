@@ -28,7 +28,7 @@
         $profile = \App\Profile::find(1);
         $utility = \App\Utility::find(1);
     @endphp
-    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar" @if($utility->header != null) style="background-image: url(&quot;{{ asset('img/navbar/gambar-background-kayu-hd.jpg') }}&quot;);" @endif>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar" @if($utility->header != null) style="background-image: url(&quot;{{ asset('img/navbar/'.$utility->header) }}&quot;);" @endif>
         <div class="container">
             <div><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
             <div class="collapse navbar-collapse" id="navcol-1">

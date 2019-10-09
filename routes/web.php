@@ -47,6 +47,13 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/slide', 'UtilityController@slide');
     Route::patch('/update-slide/{photo}', 'UtilityController@updateSlide')->name('update-slide');
     Route::delete('/destroy-slide/{photo}', 'UtilityController@destroySlide')->name('destroy-slide');
+
+    Route::get('/header', 'UtilityController@header');
+    Route::patch('/update-header', 'UtilityController@updateHeader')->name('update-header');
+    Route::patch('/update-color', 'UtilityController@updateColor')->name('update-color');
+    Route::delete('/destroy-header', 'UtilityController@destroyHeader')->name('destroy-header');
+
+    Route::resource('/announcement', 'AnnouncementController');
 });
 
 Route::get('/', 'HomeController@index')->name('home');
