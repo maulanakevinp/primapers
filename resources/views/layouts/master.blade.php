@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
+    <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
     <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
     <link rel="stylesheet" href="{{asset('fonts/simple-line-icons.min.css')}}">
@@ -116,6 +117,7 @@
     <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
 
     <script>
+        CKEDITOR.replace( 'description' );
         $(document).ready(function(){
             $('#dataTable').DataTable();
             $(".custom-file-input").on("change", function() {

@@ -18,7 +18,7 @@ class CreateArticlesTable extends Migration
             $table->unsignedBigInteger('subcategory_id');
             $table->string('title', 64);
             $table->text('description');
-            $table->string('caption', 64);
+            $table->string('caption', 64)->nullable();
             $table->string('photo');
             $table->string('video')->nullable();
             $table->timestamps();

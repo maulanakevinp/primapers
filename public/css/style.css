@@ -1,0 +1,15 @@
+.block-with-text {
+    display: block;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.title-article {
+    -webkit-line-clamp: 3;
+}
+
+.description-article {
+    -webkit-line-clamp: 3;
+}

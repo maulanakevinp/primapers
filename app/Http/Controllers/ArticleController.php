@@ -32,7 +32,7 @@ class ArticleController extends Controller
     public function create()
     {
         $title = "Artikel";
-        $subtitle = "Add New Article";
+        $subtitle = "Tambah Artikel Baru";
         $categories = Category::all();
         return view('article.create', compact('title', 'subtitle', 'categories'));
     }
@@ -46,13 +46,13 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'sub_category' => 'required',
-            'category' => 'required',
-            'title' => 'required',
-            'caption' => 'required',
-            'description' => 'required',
-            'photo' => 'required|image|mimes:jpeg,png,gif,webp|max:2048',
-            'video' => 'nullable'
+            'sub_category'  => 'required',
+            'category'      => 'required',
+            'title'         => 'required',
+            'caption'       => 'nullable',
+            'description'   => 'required',
+            'photo'         => 'required|image|mimes:jpeg,png,gif,webp|max:2048',
+            'video'         => 'nullable'
         ]);
 
         $file = $request->file('photo');
@@ -80,7 +80,7 @@ class ArticleController extends Controller
     public function edit($id)
     {
         $title = 'Artikel';
-        $subtitle = 'Edit Article';
+        $subtitle = 'Ubah Article';
         $article = Article::find($id);
         $categories = Category::all();
         $sub_categories = Subcategory::where('category_id', $article->subcategory->category_id)->get();
@@ -98,13 +98,13 @@ class ArticleController extends Controller
     {
         $article = Article::find($id);
         $request->validate([
-            'sub_category' => 'required',
-            'category' => 'required',
-            'title' => 'required',
-            'caption' => 'required',
-            'description' => 'required',
-            'photo' => 'image|mimes:jpeg,png,gif,webp|max:2048',
-            'video' => 'nullable'
+            'sub_category'  => 'required',
+            'category'      => 'required',
+            'title'         => 'required',
+            'caption'       => 'nullable',
+            'description'   => 'required',
+            'photo'         => 'image|mimes:jpeg,png,gif,webp|max:2048',
+            'video'         => 'nullable'
         ]);
 
         $file = $request->file('photo');
@@ -203,7 +203,7 @@ class ArticleController extends Controller
 
     public function search(Request $request)
     {
-        $subtitle = "Search Artikel";
+        $subtitle = "Cari Artikel";
         $title = "Artikel";
         $request->validate([
             'search' => 'required'
