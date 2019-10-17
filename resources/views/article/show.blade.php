@@ -33,7 +33,7 @@
                             <div class="text-muted">
                                 <small>{{$article->caption}}</small>
                             </div>
-                            <p class="text-justify mt-3">{{$article->description}}</p>
+                            <div class="mt-3 mb-3">{!! $article->description !!}</div>
                             @if ($article->video != null)
                                 <iframe width="100%" height="350" src="{{'https://www.youtube.com/embed/'.$article->video}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             @endif
@@ -53,7 +53,7 @@
                                     <p class="text-muted "><small>{{ $articl->created_at->format('d M Y') }}</small></p>
                                     <p class="font-weight-bold title-article block-with-text">{{$articl->title}}</p>
                                     <p class="description-article block-with-text text-justify">
-                                        {{$articl->description}}
+                                        {!! $articl->description !!}
                                     </p>
                                     <form action="{{route('show',['id' => $articl->id , 'title' => strtolower(str_replace(' ','-',$articl->title))])}}" method="get">
                                         <button class="btn btn-outline-primary btn-sm" type="submit">{{__('Read More')}}</button>

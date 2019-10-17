@@ -23,7 +23,7 @@
                                     <h4 class="card-title title-article block-with-text text-dark">
                                         {{$article->title}}
                                     </h4>
-                                    <p class="card-text description-article block-with-text text-dark">{{$article->description}}</p>
+                                    <div class="card-text description-article block-with-text text-dark">{!! $article->caption !!}</div>
                                 </div>
                             </div>
                         </a>
