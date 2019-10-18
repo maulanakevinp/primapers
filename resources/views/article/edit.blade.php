@@ -148,6 +148,10 @@
 
 </div>
 <!-- /.container-fluid -->
+@endsection
 
-
+@section('script')
+<script>
+    CKEDITOR.replace( 'description' );
+</script>
 @endsection

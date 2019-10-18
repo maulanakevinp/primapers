@@ -115,9 +115,9 @@
     
     <script src="{{ asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+    @yield('script')
 
     <script>
-        CKEDITOR.replace( 'description' );
         $(document).ready(function(){
             $('#dataTable').DataTable();
             $(".custom-file-input").on("change", function() {
