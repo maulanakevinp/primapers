@@ -6,7 +6,7 @@ use App\Article;
 use App\Category;
 use App\Subcategory;
 use Illuminate\Http\Request;
-use File;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
@@ -184,7 +184,9 @@ class ArticleController extends Controller
     public function showByCategory($id, $title)
     {
         $category = Category::where('id', $id)->where('category', str_replace('-', ' ', $title))->first();
-        $articles = Article::getByCategory($id);
+        $articles = Article::whereHas('subcategory',function($q) use ($id){
+            $q->whereCategoryId($id);
+        })->orderby('id','desc')->paginate(15);
         if (empty($category)) {
             return abort(404, 'Not Found');
         }
@@ -220,7 +222,9 @@ class ArticleController extends Controller
         $Category = Category::find($id);
         $subtitle = $Category->category;
         $categories = Category::all();
-        $articles = Article::getByCategory($id);
+        $articles = Article::whereHas('subcategory',function($q) use ($id){
+            $q->whereCategoryId($id);
+        })->orderby('id','desc')->paginate(15);
         return view('article.category', compact('subtitle', 'title', 'articles', 'categories', 'Category'));
     }
 
@@ -231,7 +235,7 @@ class ArticleController extends Controller
         $subcategories = Subcategory::where('category_id', $category)->get();
         $subtitle = $Subcategory->category->category . ' : ' . $Subcategory->sub_category;
         $categories = Category::all();
-        $articles = Article::where('subcategory_id', $id)->paginate(15);
+        $articles = Article::where('subcategory_id', $id)->orderby('id','desc')->paginate(15);
         return view('article.subcategory', compact('subtitle', 'title', 'articles', 'categories', 'subcategories', 'Subcategory'));
     }
 }

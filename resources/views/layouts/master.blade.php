@@ -30,7 +30,7 @@
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link rel="icon" href="{{ asset('img/logo/bner.png') }}">
-    
+
 </head>
 
 <body id="page-top">
@@ -112,7 +112,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
     <script src="{{asset('js/smoothproducts.min.js')}}"></script>
     <script src="{{asset('js/theme.js')}}"></script>
-    
+
     <script src="{{ asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
     @yield('script')
@@ -192,6 +192,7 @@
             });
         });
     </script>
+    @stack('scripts')
 </body>
 
 </html>

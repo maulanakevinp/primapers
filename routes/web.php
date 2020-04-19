@@ -12,6 +12,10 @@
 */
 
 //Auth
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Auth::routes([
     'register' => false, // Registration Routes...
     'reset' => false, // Password Reset Routes...
@@ -24,7 +28,7 @@ Auth::routes([
 
 Route::group(['middleware' => ['web', 'auth']], function () {
     Route::resource('/article', 'ArticleController')->except(['show']);
-    Route::get('/article/softdelete/{id}', 'ArticleController@softdelete')->name('softdelete');
+    Route::get('/article/softdelete/{id}', 'ArticleController@softdelete')->name('article.softdelete');
     Route::get('/article/trash', 'ArticleController@trash')->name('article.trash');
     Route::get('/article/restore/{id}', 'ArticleController@restore')->name('article.restore');
     Route::get('/article/restore', 'ArticleController@restoreAll')->name('article.restoreAll');

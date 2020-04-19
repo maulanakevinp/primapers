@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{asset('css/smoothproducts.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css') }}">
     <link rel="icon" href="{{ asset('img/logo/bner.png') }}">
-    
+
     <style>
         .breadcrumb-item + .breadcrumb-item::before {
             content: ">";
@@ -97,6 +97,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
     <script src="{{asset('js/smoothproducts.min.js')}}"></script>
     <script src="{{asset('js/theme.js')}}"></script>
+    @stack('scripts')
 </body>
 
 </html>

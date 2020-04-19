@@ -9,7 +9,7 @@
             <div class="row mb-3">
                 <div class="col-lg-8 mb-3">
                     <section id="carousel">
-                        <div class="carousel slide" data-ride="carousel" id="carousel-1">
+                        <div class="carousel slide shadow" data-ride="carousel" id="carousel-1">
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item active ">
                                     <img class="w-100" style="height:400px"  src="{{ asset('img/carousel/'.$utility['photo1']) }}" alt="{{ $utility['photo1'] }}">
@@ -27,7 +27,7 @@
                     </section>
                 </div>
                 <div class="col-lg-4">
-                    <div class="card">
+                    <div class="card shadow">
                         <div class="card-header">
                             <h6 class="font-weight-bold"><i class="fas fa-bullhorn"></i> Pengumuman</h6>
                         </div>
@@ -41,19 +41,17 @@
                 </div>
             </div>
             <hr>
-            <div class="row ">
+            <div class="card-columns">
                 @foreach ($articles as $article)
-                    <div class="col-md-6 col-lg-4">
+                    <div class="postingan card shadow mt-3">
                         <a class="card-link" href="{{route('show',['id' => $article->id , 'title' => strtolower(str_replace(' ','-',$article->title))])}}">
-                            <div class="card">
-                                <img class="card-img-top w-100 d-block" src="{{asset('img/article/'.$article->photo)}}">
-                                <div class="card-body">
-                                    <h4 class="card-title title-article block-with-text text-dark" style="height: 40px">
-                                        {{$article->title}}
-                                    </h4>
-                                    <div class="card-text description-article block-with-text text-dark" style="height: 60px">{!! $article->description !!}
-                                        </div>
-                                </div>
+                            <img class="card-img-top w-100 d-block" src="{{asset('img/article/'.$article->photo)}}">
+                            <div class="card-body">
+                                <h4 class="card-title title-article block-with-text text-dark" style="height: 40px">
+                                    {{$article->title}}
+                                </h4>
+                                <div class="card-text description-article block-with-text text-dark" style="height: 60px">{!! $article->description !!}
+                                    </div>
                             </div>
                         </a>
                     </div>
@@ -64,4 +62,12 @@
     </section>
 </main>
 @endsection
-    
+
+@push('scripts')
+    <script>
+        $(document).ready(function(){
+            $(".pagination").addClass('justify-content-center');
+        });
+    </script>
+@endpush
+

@@ -18,7 +18,7 @@
             </nav>
             <div class="row">
                 <div class="col-lg-8 mb-3">
-                    <div class="card">
+                    <div class="card shadow">
                         <div class="card-header font-weight-bold">
                             {{$article->title}}
                         </div>
@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="card">
+                    <div class="card shadow">
                         <div class="card-header font-weight-bold">
                             {{_('Artikel Lainnya')}}
                         </div>
@@ -49,13 +49,13 @@
                             @foreach ($articles as $articl)
                                 @if ($articl->id != $article->id)
                                 <div class="clean-blog-post p-0">
-                                    <img class="rounded img-fluid" src="{{asset('img/article/'.$articl->photo)}}" alt="{{$articl->photo}}">
+                                    <div class="text-center">
+                                        <img class="rounded img-fluid" src="{{asset('img/article/'.$articl->photo)}}" alt="{{$articl->photo}}">
+                                    </div>
                                     <p class="text-muted "><small>{{ $articl->created_at->format('d M Y') }}</small></p>
                                     <p class="font-weight-bold title-article block-with-text">{{$articl->title}}</p>
-                                    <p class="description-article block-with-text text-justify">
-                                        {!! $articl->description !!}
-                                    </p>
-                                    <form action="{{route('show',['id' => $articl->id , 'title' => strtolower(str_replace(' ','-',$articl->title))])}}" method="get">
+                                    <div class="card-text description-article block-with-text text-dark" style="height: 60px">{!! $articl->description !!}</div>
+                                    <form class="mt-3 text-right" action="{{route('show',['id' => $articl->id , 'title' => strtolower(str_replace(' ','-',$articl->title))])}}" method="get">
                                         <button class="btn btn-outline-primary btn-sm" type="submit">{{__('Read More')}}</button>
                                     </form>
                                 </div>

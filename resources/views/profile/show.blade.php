@@ -15,7 +15,8 @@
                     <h3 class="font-weight-bold">{{$profile->title}}</h3>
                     <img class="img-fluid" src="{{asset('img/profile/'.$profile->photo)}} " alt="">
                 </div>
-                <div class="post-body">
+                <hr>
+                <div class="post-body mt-3">
                     <h5 class="font-weight-bold">{{__('Visi')}}</h5>
                     <p class="text-justify" style="white-space: pre-line">{{$profile->vision}}</p>
                     <hr>

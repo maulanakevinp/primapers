@@ -15,7 +15,7 @@
         </ul>
     </div>
     @endif
-    
+
     <form action=" {{ route('article.update',$article->id) }} " method="post" enctype="multipart/form-data">
         @csrf
         @method('patch')
@@ -137,6 +137,7 @@
                 </div>
                 @enderror
                 <div class="float-right mt-3">
+                    <a href="{{route('article.softdelete',$article->id)}}" onclick="return confirm('Apakah anda yakin ingin menghapus artikel ini???')" class="btn btn-danger">{{__('Hapus')}}</a>
                     <a href="{{route('article.index')}}" class="btn btn-outline-secondary">{{__('Batal')}}</a>
                     <button type="submit" class="btn btn-primary">
                         {{__('Simpan')}}

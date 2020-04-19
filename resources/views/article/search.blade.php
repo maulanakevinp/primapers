@@ -40,39 +40,46 @@
     <h5>{{__('Cari : ').$search}} </h5>
     <p><small>{{__('Jumlah : ').$articles->count()}} </small></p>
     @if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
     @endif
 
     @if (session('failed'))
-    <div class="alert alert-danger">
-        {{ session('failed') }}
-    </div>
+        <div class="alert alert-danger">
+            {{ session('failed') }}
+        </div>
     @endif
-        <section class="clean-block clean-services pb-5">
-            <div class="container">
-                @if ($articles->count() == 0)
-                    <h5 class="text-center">{{__('Artikel Belum Tersedia')}} </h5>
-                @endif
-                <div class="row">
-                    @foreach ($articles as $article)
-                        <div class="col-md-6 col-lg-4">
-                            <a href="{{route('article.edit',$article->id)}}" class="card-link">
-                                <div class="card"><img class="card-img-top w-100 d-block" src="{{asset('img/article/'.$article->photo)}}">
-                                    <div class="card-body">
-                                        <h4 class="card-title title-article block-with-text text-dark" style="height: 40px">{{$article->title}}</h4>
-                                        <div class="card-text description-article block-with-text text-dark" style="height: 60px">{!! $article->description !!}</div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    @endforeach
-                </div>
-                {{ $articles->links() }}
+    <section class="clean-block clean-services pb-5">
+        <div class="container">
+            @if ($articles->count() == 0)
+                <h5 class="text-center">{{__('Artikel Belum Tersedia')}} </h5>
+            @endif
+            <div class="card-columns">
+                @foreach ($articles as $article)
+                    <div class="postingan card shadow mt-3">
+                        <a class="card-link" href="{{route('article.edit',$article->id)}}">
+                            <img class="card-img-top w-100 d-block" src="{{asset('img/article/'.$article->photo)}}">
+                            <div class="card-body">
+                                <h4 class="card-title title-article block-with-text text-dark" style="height: 40px">{{$article->title}}</h4>
+                                <div class="card-text description-article block-with-text text-dark" style="height: 60px">{!! $article->description !!}</div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
             </div>
-        </section>
+            {{ $articles->links() }}
+        </div>
+    </section>
 </div>
 <!-- /.container-fluid -->
 
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function(){
+            $(".pagination").addClass('justify-content-center');
+        });
+    </script>
+@endpush

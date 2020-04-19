@@ -13,18 +13,17 @@
             @if ($articles->count() == 0)
                 <h5 class="text-center">{{__('Artikel Belum Tersedia')}} </h5>
             @endif
-            <div class="row">
+            <div class="card-columns">
                 @foreach ($articles as $article)
-                    <div class="col-md-6 col-lg-4">
+                    <div class="postingan card shadow mt-3">
                         <a class="card-link" href="{{route('show',['id' => $article->id , 'title' => strtolower(str_replace(' ','-',$article->title))])}}">
-                            <div class="card">
-                                <img class="card-img-top w-100 d-block" src="{{asset('img/article/'.$article->photo)}}">
-                                <div class="card-body">
-                                    <h4 class="card-title title-article block-with-text text-dark">
-                                        {{$article->title}}
-                                    </h4>
-                                    <div class="card-text description-article block-with-text text-dark">{!! $article->caption !!}</div>
-                                </div>
+                            <img class="card-img-top w-100 d-block" src="{{asset('img/article/'.$article->photo)}}">
+                            <div class="card-body">
+                                <h4 class="card-title title-article block-with-text text-dark" style="height: 40px">
+                                    {{$article->title}}
+                                </h4>
+                                <div class="card-text description-article block-with-text text-dark" style="height: 60px">{!! $article->description !!}
+                                    </div>
                             </div>
                         </a>
                     </div>
@@ -35,3 +34,12 @@
     </section>
 </main>
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function(){
+            $(".pagination").addClass('justify-content-center');
+        });
+    </script>
+@endpush
+
